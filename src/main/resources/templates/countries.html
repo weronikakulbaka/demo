@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Users</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<div class="container list">
+	<br>
+	<nav>
+            <a th:href="@{/api/countries/add}"><button>Add</button></a>
+	</nav>
+	<div>
+            <table>
+                <tr>
+                    <th>Id</th>
+                    <th>Country</th>
+                    <th>Capital City</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <tr th:each="country:${countries}">
+                    <td  th:text="${country.id}" />
+                    <td  th:text="${country.countryname}" />
+                    <td  th:text="${country.capital}" />
+                    <td><a th:href="@{/api//countries/update(id=${country.id})}">Edit</a></td>
+                    <td><a th:href="@{/api/countries/delete(id=${country.id})}">Delete</a></td>
+		</tr>
+             </table>
+	</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+</body>
+</html>

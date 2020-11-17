@@ -22,7 +22,9 @@ public class DemoApplication {
 			//pobranie sterownika do MySQL
                         Class.forName("com.mysql.cj.jdbc.Driver");
                         //połączenie z bazą
-                        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/cloud?useSSL=false&serverTimezone=UTC","wkulbaka", "wkulbaka");
+                        while(connection == null){
+                             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/cloud?useSSL=false&serverTimezone=UTC","wkulbaka", "wkulbaka");
+                        }
                         statement = connection.createStatement();
 
 			ResultSet resultSet = connection.getMetaData().getCatalogs();
